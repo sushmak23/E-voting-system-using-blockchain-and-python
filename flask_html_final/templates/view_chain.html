@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Blockchain</title>
+</head>
+<body>
+    <h1>Blockchain</h1>
+    <div>
+        {% for block in chain %}
+        <pre>{{ block | tojson(indent=2) }}</pre>
+        <hr>
+        {% endfor %}
+    </div>
+    <a href="/admin">Back to Admin Dashboard</a>
+</body>
+</html>

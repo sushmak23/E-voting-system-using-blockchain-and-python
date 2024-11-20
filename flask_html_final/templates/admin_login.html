@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            background: #222D32;
+            /* font-family: 'Roboto', sans-serif; */
+            font-family: 'poppins';
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-box {
+            margin-top: 75px;
+            background: #1A2226;
+            text-align: center;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-key {
+            height: 100px;
+            font-size: 80px;
+            line-height: 100px;
+            background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: #ECF0F5;
+            margin-bottom: 25px;
+        }
+
+        .login-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+        }
+
+        label {
+            font-size: 20px;
+            color: #6C6C6C;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        input[type="text"], input[type="password"] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-radius: 0px;
+            font-weight: bold;
+            color: #ECF0F5;
+            outline: none;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-bottom: 2px solid #0DB8DE;
+            box-shadow: none;
+        }
+
+        .btn-outline-primary {
+            border-color: #0DB8DE;
+            color: #0DB8DE;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #0DB8DE;
+            color: #fff;
+        }
+
+        .loginbttm {
+            display: flex;
+            flex-direction: column; /* Stack the elements vertically */
+            align-items: center;    /* Center align the items */
+            margin-top: 20px;
+        }
+        
+        .login-text {
+            color: red;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .login-button {
+            text-align: center;
+            margin-top: 20px; /* Add spacing */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="login-key">
+                <i class="fas fa-key"></i>
+            </div>
+            <div class="login-title">
+                ADMIN PANEL
+            </div>
+            <div class="login-form">
+                <form action="/admin_login" method="post">
+                    <div class="form-group">
+                        <label for="username">USERNAME</label>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">PASSWORD</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class="loginbttm">
+                        <div class="login-text">
+                            <!-- Optional error messages or info can be shown here -->
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <div class="alert-box">
+                                {% for message in messages %}
+                                <div class="alert alert-danger" role="alert">{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% endwith %}
+                        </div>
+                        <div class="login-button">
+                            <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
